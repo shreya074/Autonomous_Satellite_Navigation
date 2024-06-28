@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Satellite Navigation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 500px;
+            margin: 100px auto;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .satellite {
+            width: 100px;
+            height: 100px;
+            background-color: #17a2b8;
+            border-radius: 50%;
+            position: relative;
+            animation: satelliteMove 1s infinite alternate;
+        }
+        @keyframes satelliteMove {
+            from { transform: translateX(-50px); }
+            to { transform: translateX(50px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Autonomous Satellite Navigation</h1>
+        <form action="/next_move" method="post">
+            <div class="form-group">
+                <label for="proximity">Proximity (near/far):</label>
+                <select id="proximity" name="proximity" class="form-control" required>
+                    <option value="near">Near</option>
+                    <option value="far">Far</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="movement_front">Movement Front (-):</label>
+                <input type="number" id="movement_front" name="movement_front" class="form-control" value="0" required>
+            </div>
+            <div class="form-group">
+                <label for="movement_back">Movement Back (+):</label>
+                <input type="number" id="movement_back" name="movement_back" class="form-control" value="0" required>
+            </div>
+            <div class="form-group">
+                <label for="movement_right">Movement Right (+):</label>
+                <input type="number" id="movement_right" name="movement_right" class="form-control" value="0" required>
+            </div>
+            <div class="form-group">
+                <label for="movement__left">Movement Left (-):</label>
+                <input type="number" id="movement_left" name="movement_left" class="form-control" value="0" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get Next Move</button>
+        </form>
+    </div>
+</body>
+</html>
